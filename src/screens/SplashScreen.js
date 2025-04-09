@@ -1,8 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
-
-import {CommonColor} from '../common/Color';
+import {StyleSheet, Text, View} from 'react-native';
 
 const SplashScreen = () => {
   const navigation = useNavigation();
@@ -10,7 +8,7 @@ const SplashScreen = () => {
   //Navigate to Home screen after 2000ms
   useEffect(() => {
     setTimeout(() => {
-      // navigation.navigate('Home');
+      navigation.replace('Registration');
     }, 2000);
   }, []);
 
@@ -25,7 +23,7 @@ export default SplashScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: CommonColor.white,
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -33,5 +31,5 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
   },
-  text: {color: CommonColor.blue, fontSize: 30, fontWeight: 600, padding: 20},
+  text: {color: '#2196f3', fontSize: 30, fontWeight: 600, padding: 20},
 });
