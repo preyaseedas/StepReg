@@ -47,7 +47,7 @@ const RegistrationStepper = () => {
     gender: '',
     state: '',
     location: '',
-    pincode: '',
+    pinCode: '',
     hobbies: [],
     skill: '',
     image: '',
@@ -77,7 +77,7 @@ const RegistrationStepper = () => {
       case 0:
         return regInfo.name !== '' && regInfo.phone !== '' && regInfo.email !== '' && regInfo.gender !== '';
       case 1:
-        return regInfo.state !== '' && regInfo.location !== '' && regInfo.pincode !== '';
+        return regInfo.state !== '' && regInfo.location !== '' && regInfo.pinCode !== '';
       case 2:
         return regInfo.hobbies.length > 0 && regInfo.skill !== '' && regInfo.image !== '';
       default:
@@ -89,6 +89,8 @@ const RegistrationStepper = () => {
 useEffect(() => {
   setIsStepValid(validateStep());
 }, [regInfo, currentStep]);
+
+
 
   return (
     <View style={styles.main}>
@@ -119,7 +121,7 @@ useEffect(() => {
         <Button
           title={currentStep === 2 ? 'Submit' : 'Next'}
           onPress={handleNextBtn}
-          disabled={!isStepValid}
+         disabled={!isStepValid}
         />
       </View>
     </View>

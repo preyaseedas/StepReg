@@ -40,14 +40,14 @@ const AddressScreen = ({data, updateValue}) => {
         onChangeText={val => updateValue('location', val)}
       />
 
-      <Text style={styles.textStyle}>PinCode</Text>
+      <Text style={styles.textStyle}>pinCode</Text>
       <TextInput
         style={styles.textInput}
-        placeholder="Enter your pincode"
+        placeholder="Enter your pinCode"
         placeholderTextColor={'#bababa'}
-        value={data.pincode}
+        value={data.pinCode}
         keyboardType="numeric"
-        onChangeText={val => updateValue('pincode', val)}
+        onChangeText={val => updateValue('pinCode', val)}
       />
     </View>
   );

@@ -93,7 +93,7 @@ const GeneralInfoScreen = ({data, updateValue}) => {
       <RadioForm
         radio_props={genderOptions}
         initial={genderOptions.findIndex(opt => opt.value === data.gender)}
-        onPress={val => updateValue('gender', val)}
+        onPress={value => updateValue('gender', value)}
         formHorizontal
         labelHorizontal
         buttonColor={'#2196f3'}

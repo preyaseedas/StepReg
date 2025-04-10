@@ -4,6 +4,7 @@ import {useRoute} from '@react-navigation/native';
 
 const DetailsScreen = () => {
     const route = useRoute();
+    // extracting 'data' from route params
     const { data } = route.params;
 
   return (
@@ -29,7 +30,7 @@ const DetailsScreen = () => {
         Location: <Text style={styles.value}>{data.location}</Text>
       </Text>
       <Text style={styles.label}>
-        Pincode: <Text style={styles.value}>{data.pincode}</Text>
+        pinCode: <Text style={styles.value}>{data.pinCode}</Text>
       </Text>
       <Text style={styles.label}>
         Hobby: <Text style={styles.value}>{data.hobbies?.join(', ')}</Text>
