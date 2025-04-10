@@ -5,11 +5,14 @@ import GeneralInfoScreen from './GeneralInfoScreen';
 import AddressScreen from './AddressScreen';
 import OtherInfo from './OtherInfo';
 import {useNavigation} from '@react-navigation/native';
+import {useEffect} from 'react';
 
 const RegistrationStepper = () => {
   const navigation = useNavigation();
 
   const [currentStep, setCurrentStep] = useState(0);
+  const [isStepValid, setIsStepValid] = useState(false);
+
 
   const labels = ['General Info', 'Address', 'Other Info'];
 
@@ -68,6 +71,25 @@ const RegistrationStepper = () => {
     }
   };
 
+
+  const validateStep = () => {
+    switch (currentStep) {
+      case 0:
+        return regInfo.name !== '' && regInfo.phone !== '' && regInfo.email !== '' && regInfo.gender !== '';
+      case 1:
+        return regInfo.state !== '' && regInfo.location !== '' && regInfo.pincode !== '';
+      case 2:
+        return regInfo.hobbies.length > 0 && regInfo.skill !== '' && regInfo.image !== '';
+      default:
+        return false;
+    }
+  };
+
+
+useEffect(() => {
+  setIsStepValid(validateStep());
+}, [regInfo, currentStep]);
+
   return (
     <View style={styles.main}>
       <StepIndicator
@@ -97,6 +119,7 @@ const RegistrationStepper = () => {
         <Button
           title={currentStep === 2 ? 'Submit' : 'Next'}
           onPress={handleNextBtn}
+          disabled={!isStepValid}
         />
       </View>
     </View>
